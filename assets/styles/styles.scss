@@ -1,0 +1,407 @@
+$text-color-one : #d9d9d7;
+$text-color-green : #d6f204;
+$back-color-black-soft : #2b2e25;
+$back-color-black : #22231d;
+
+body{
+    background-color: $back-color-black-soft;
+    font-family: 'Roboto', sans-serif;
+    overflow : hidden;
+}
+.page-content {
+    position: relative;
+    width: 100vw; /* 100% de la largeur de la fenêtre */
+    height: 100vh; /* 100% de la hauteur de la fenêtre */
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    
+}
+
+h4{
+    color : $text-color-green;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+
+}
+.Menu{
+    position: relative;
+    height: 10%;
+    vertical-align: center;
+
+    color:$text-color-one;
+    .logo{
+        position: relative;
+        left:0px;
+        top:50%;
+        transform: translateY(-50%);
+    }
+    .Titre_dashbord{
+
+
+        position: absolute;
+        top:0px;
+        left: 50%;
+        top:50%;
+        margin:0px;
+        transform: translateX(-50%)translateY(-50%);
+    }
+
+    #Choise_your_categorie{
+
+        position: absolute;
+        right: 0;
+        top:50%;
+        margin:0px;
+        width: 20%;
+        transform: translateY(-50%);
+        
+    }
+    #Choise_your_categorie{
+        .title_choise{
+            color : $text-color-green;
+            font-weight: bold;
+    
+        }
+        .dash-dropdown{
+            position: absolute;
+            left: 35%;
+            width: 45%;
+            top:50%;
+            transform: translateY(-50%);
+    
+            color: $text-color-green;
+            .Select-control{
+                background-color: $back-color-black-soft;
+                color:$text-color-green;
+                border: 1px solid $text-color-green;
+                .Select-value-label {
+                    color : $text-color-green;
+                }
+                .Select-arrow {
+                    border-color: $text-color-green transparent transparent;
+                }
+                .Select-clear-zone{
+                    color: $text-color-green ;
+                }
+                .Select-placeholder {
+                    color : $text-color-green;
+                }
+            }
+            .Select-menu-outer{
+                background-color: $back-color-black-soft;
+                color : $text-color-green;
+                border: 1px solid $text-color-green;
+            }
+        }
+        
+    }
+    
+}
+.content-stats{
+    position: relative;
+  
+    height: 87%;
+    width: 97%;
+   
+    display: grid;
+    grid-template-columns: 0.8fr 0.8fr 0.8fr; /* 3 colonnes */
+    grid-template-rows: 1fr 1fr; /* 2 lignes */
+    gap: 10px; /* Espacement entre les éléments */
+    transform: translateX(-50%);
+    left: 50%;
+
+
+
+    .Elements_categorie_lvl{
+      
+        grid-column: 1 / span 1; /* Première colonne */
+        grid-row: 2 / 2;
+        background-color: $back-color-black;
+        grid-row: 1 / span 2;
+     
+
+    }
+    .Repartition_niveau_item{
+      
+        grid-column: 2 / span 1; /* Première colonne */
+        grid-row: 1 / span 1;
+        background-color: $back-color-black;
+
+        #titre-rep-niv{
+            color : $text-color-green;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+     
+    }
+
+    .Repartition_poids_par_niveau{
+    
+        grid-column: 2 / span 1; /* Deuxième colonne, deuxième ligne */
+        grid-row: 2 / span 1;
+        background-color: $back-color-black;
+        display: flex;
+        flex-direction: column-reverse;
+
+        #titre-rep-poids{
+            color : $text-color-green;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+
+        }
+        #Choise_your_methode{
+            position: relative;
+            height:10%;
+            width: 100%;
+            margin : 10px;
+            margin-top : 20px;
+
+            .title_choise{
+                position: absolute;
+                left: 40%;
+                color : $text-color-green;
+                margin-right: 10px;
+                top:50%;
+                transform: translateX(-100%) translateY(-50%);
+                margin-top:0px;
+                
+        
+            }
+            .dash-dropdown{
+                position: absolute;
+                left: 45%;
+                width: 25%;
+                top:50%;
+                transform: translateY(-50%);
+
+                color: $text-color-green;
+                .Select-control{
+                    background-color: $back-color-black-soft;
+                    color:$text-color-green;
+                    border: 1px solid $text-color-green;
+                    .Select-value-label {
+                        color : $text-color-green;
+                    }
+                    .Select-arrow {
+                        border-color: $text-color-green transparent transparent;
+                    }
+                    .Select-clear-zone{
+                        color: $text-color-green ;
+                    }
+                    .Select-placeholder {
+                        color : $text-color-green;
+                    }
+                }
+                .Select-menu-outer{
+                    background-color: $back-color-black-soft;
+                    border: 1px solid $text-color-green;
+                }
+            }
+        }
+        #Rep_By_poids{
+            top : -10px;
+        }
+
+
+       
+    }
+    .Select_item{
+       position: relative;
+        grid-column: 3 / span 1; /* Troisième colonne */
+        grid-row: 1 / span 2;
+        background-color: $back-color-black;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        #titre-ele_item{
+            margin-bottom : 10px;
+        }
+        #Choise_your_item{
+            position: relative;
+            height:5%;
+            width: 100%;
+            margin : 20px;
+            margin-top : 10px;
+
+            .title_choise{
+                position: absolute;
+                left: 20%;
+                color : $text-color-green;
+                margin-right: 10px;
+                top:50%;
+                transform: translateX(-100%) translateY(-50%);
+                margin-top:0px;
+                
+        
+            }
+            .dash-dropdown{
+                position: absolute;
+                left: 35%;
+                width: 45%;
+                top:50%;
+                transform: translateY(-50%);
+
+                color: $text-color-green;
+                .Select-control{
+                    background-color: $back-color-black-soft;
+                    color:$text-color-green;
+                    border: 1px solid $text-color-green;
+                    .Select-value-label {
+                        color : $text-color-green;
+                    }
+                    .Select-arrow {
+                        border-color: $text-color-green transparent transparent;
+                    }
+                    .Select-clear-zone{
+                        color: $text-color-green ;
+                    }
+                    .Select-placeholder {
+                        color : $text-color-green;
+                    }
+                }
+                .Select-menu-outer{
+                    background-color: $back-color-black-soft;
+                    color : $text-color-green;
+                    border: 1px solid $text-color-green;
+                }
+            }
+        }
+
+        #cont_item_view{
+            position: relative;
+            align-content: center;
+            
+            width: 100%;
+            height: 60%;
+       
+        }
+        .stats-item{
+            position: relative;
+            background-color: $back-color-black ;
+            width: 100%;
+            height: 15%;
+            bottom: 0;
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            
+            .part_graph_item{
+                height: 100%;
+                background-color:  $back-color-black ;
+                #titre-item-graphe-1,#titre-item-graphe-2{
+                    margin-top: 5;
+                    margin-bottom: 5;
+                }
+                .part_graph_item_fig{
+                    height: 50%;
+                    .user-select-none & .svg-container{
+                        height: 50%;
+                    }
+                    
+                }
+              
+            }
+            
+     
+        }
+    }
+}
+
+$hauteur : 90%;
+$Largeur : $hauteur*0.8;
+$Color-text-card-white : white;
+$Color-text-card-second-white : rgb(238, 238, 238);
+$Color-text-card-green : #4ca53c;
+$Color-text-card-red :#bf635a;
+.Card-item{
+    position: relative;
+    top:50%;
+    left: 50%;
+    padding-top: 10px;
+
+  
+    width: $Largeur;
+    background-color: black;
+    transform: translateX(-50%) translateY(-50%) ;
+
+    .name_of_card{
+        margin-bottom: 0;
+        padding-bottom: 0;
+        position: relative;
+        color:$Color-text-card-white;
+        font-weight: bold;
+        font-size:larger;
+        left : 5%;
+   
+    }
+    .niveau_of_card{
+        position: relative;
+        color:$Color-text-card-second-white;
+        font-weight:lighter;
+        font-size:medium;
+        margin-top:0;
+        left : 5%;
+
+    
+
+    }
+    .visuel{
+        position:absolute;
+        width: 100px; /* Largeur souhaitée */
+        height: 100px; /* Hauteur souhaitée */
+        right: 5%;
+        top:5%;
+    }
+    .Effets-name{
+        position: relative;
+        color:$Color-text-card-second-white;
+        font-weight: bold;
+        font-size:larger;
+        left : 7%;
+     
+    
+    }
+    .Cont-Effets{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        left : 9%;
+      
+ 
+        .Effet-text{
+            margin:0;
+   
+            &.red {
+                color: $Color-text-card-red;
+            }
+    
+            &.green {
+                color: $Color-text-card-green;
+            }
+
+        }
+
+    }
+    .cont_categ{
+        position: relative;
+        display: flex;
+        left : 5%;
+    
+        vertical-align: middle;
+
+        .title_categ_of_card{
+            color:$Color-text-card-second-white;
+            font-weight:lighter;
+            font-size:medium;
+            margin-right: 10px;
+        }
+        .categ_of_card{
+            color:$Color-text-card-second-white;
+            font-weight: bold;
+            font-size:medium;
+
+        }
+    }
+
+}
