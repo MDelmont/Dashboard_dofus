@@ -11,7 +11,9 @@ class Graph():
          # Calculer la hauteur en pourcentage
         desired_percentage = 20  # Mettez ici le pourcentage désiré
         screen_height = tk.Tk().winfo_screenheight()
+        screen_width= tk.Tk().winfo_screenwidth()
         self.desired_height = (screen_height * desired_percentage) / 100
+        self.screen_width = (screen_width * desired_percentage) / 100
         pass
 
     def get_graph_rep_by_item(self,categ_name='Tout'):
@@ -102,7 +104,7 @@ class Graph():
         fig = go.Figure(go.Indicator(
             mode = "gauge+delta+number",
             value = value,
-            number={'font': {'size': 25}},
+            number={'font': {'size': 20}},
             delta = {'reference': delta_ref,
                     'font': {'family': "Roboto, sans-serif"},
                     'increasing': {'color': "#4ca53c"},
@@ -134,36 +136,58 @@ class Graph():
             paper_bgcolor='#22231d',
             
             font=dict(color='#d6f204', family='Roboto, sans-serif'),
-            margin=dict(l=60, r=60, t=0, b=0),  # Définir les marges souhaitées en pixels
-            height=160,
+            margin=dict(l=60, r=60, t=15, b=15),  # Définir les marges souhaitées en pixels
+            height=self.desired_height*0.45,
+            width=self.screen_width*0.55
         )
  
       
         
-        fig.add_annotation(x=0.5, y=0.55, text="Poid", font= {'family': "Roboto, sans-serif" ,'color': "#d6f204",'size': 20}, showarrow=False)
+        fig.add_annotation(x=0.5, y=0.55, text="Poid", font= {'family': "Roboto, sans-serif" ,'color': "#d6f204",'size': 15}, showarrow=False)
 
-        # fig.add_annotation(
-        #     x=0.5, y=0.85,
-        #     text="Moyenne des poids total",
-        #     showarrow=False,
-        #     font={ 'color': 'red', 'size':8}
-        # )
-        # fig.update_layout(
-            
-        #     shapes=[
-        #         dict(
-        #             type="line",
-        #             x0=0.9, y0=0.838,
-        #             x1=0.92, y1=0.838,
-        #             line=dict(color="red", width=2)
-        #         )
-        #     ]
-        # )
         return fig
+    
 
 
+    def get_graph_pie(self,categ_name='Tout',categ_ele='mono-élément',grp_lvl='Tout'):
+        df =self.df.copy()
+        # Créer un sous-ensemble de données pour chaque catégori
+        df = df[df['categorie_element'] == categ_ele]
+        if grp_lvl != 'Tout':
+            df = df[df['grp_lvl'] == grp_lvl]
+        
+        if categ_name != 'Tout':
+            df = df[df['Type'] == categ_name]
 
+        # Calculer les pourcentages des éléments dans chaque catégorie
+        element_counts = df['Elements'].value_counts(normalize=True) * 100
+        nb_color = len(df['Elements'].unique())
+        color_list = ['#04ed8d','#55e64d','#c7e600','#99d70a','#48bd1b','#03a629'][0:nb_color]
+        # Créer le pie chart
+        fig = go.Figure(data=[go.Pie(labels=element_counts.index, values=element_counts.values, marker=dict(colors=color_list))])
+        if grp_lvl != 'Tout':
+            fig.update_layout(title=dict(text=f"Graphique pour la catégorie {categ_ele} concernant les du niveau {grp_lvl}",x=0.5,xanchor='center'))
+        else:
+            fig.update_layout(title=dict(text=f"Graphique pour la catégorie {categ_ele}",x=0.5,xanchor='center'))
+        fig.update_layout(
+            plot_bgcolor='rgba(0,0,0,0)',  # Fond transparent
+            paper_bgcolor='#22231d',
+            
+            font=dict(color='#d6f204', family='Roboto, sans-serif'),
+       
+        
+        )
+      
+        # Mise à jour du layout pour personnaliser la légende
+        fig.update_layout(
+            legend=dict(
 
+                orientation='h',  # Orientation horizontale
+
+            )
+        )
+        # Afficher les filtres interactifs pour les catégories et grp_lvls
+        return fig
 
 
 

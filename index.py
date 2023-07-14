@@ -33,7 +33,47 @@ app.layout = html.Div([
                     html.Div(
                         className='Elements_categorie_lvl',
                         children = [
-                            html.H4("Repartition des éléments par niveau",id="titre-ele_Categ")
+                            
+
+                            html.Div(className='cont-graph-elem',
+                                     children=[
+                                         html.Div(className='Cont_graph',
+                                            children =[dcc.Graph(id='pie_graph',
+                                                figure=graph.get_graph_pie(categ_ele="mono-élément"))]
+                                         ),
+                                     ]
+                                     
+                                     ),
+                            html.Div(id='Choise_your_categ_elem',
+                                     
+                                children = [
+                                    html.P("Catégorie d'élément", className='title_choise'),
+                                    dcc.Dropdown(id='groupby-categ_elem',
+                                    options=Data().get_instance().make_dict_dropdown_categorie_element(),
+                                    placeholder="mono-élément",
+                        
+                                    value='mono-élément',  # Valeur par défaut
+                       
+                                    searchable=False,  # Désactiver la recherche
+                                    clearable=False,
+                                ),
+                            ]),
+                            html.Div(id='Choise_your_grp_lvl',
+                                     
+                                children = [
+                                    html.P('Groupe de level', className='title_choise'),
+                                    dcc.Dropdown(id='groupby-grp_lvl',
+                                    options=Data().get_instance().make_dict_dropdown_grp_lvl(),
+                                    placeholder="Tout",
+                        
+                                    value='Tout',  # Valeur par défaut
+                       
+                                    searchable=False,  # Désactiver la recherche
+                                    clearable=False,
+                                ),
+                            ]),
+
+                            html.H4("Repartition des éléments par niveau",id="titre-ele_Categ"),
                         ]
                     ),
                     html.Div(
@@ -144,6 +184,20 @@ app.layout = html.Div([
         ]),
         
     ])
+
+# Créez la fonction de rappel
+@app.callback(
+    Output('pie_graph', 'figure'),
+    Input('list_categ', 'value'),
+    Input('groupby-categ_elem', 'value'),
+    Input('groupby-grp_lvl', 'value'),
+)
+def update_graph_pie(categ_name,categ_elem,grp_lvl):
+
+    return graph.get_graph_pie(categ_name=categ_name,categ_ele=categ_elem,grp_lvl=grp_lvl)
+
+
+
 # Créez la fonction de rappel
 @app.callback(
     Output('Rep_By_Level', 'figure'),
@@ -154,8 +208,6 @@ app.layout = html.Div([
 def update_graph_quantity(categ_name):
     option_equip = Data().make_dict_dropdown_item(categ_name=categ_name)
     item_value = Data().get_list_item(categ_name=categ_name)[0]
-    print(option_equip)
-    print(item_value)
     return graph.get_graph_rep_by_item(categ_name=categ_name),option_equip,item_value
     # Votre logique de mise à jour de la figure ici
     # Utilisez groupby_method pour déterminer  
@@ -217,5 +269,5 @@ def update_item(item_name,categ_name):
 #         return f"ERROR : {error}"
 
 if __name__ == '__main__':
-    App.app.run_server(debug=True,port=8051)
+    App.app.run_server(debug=False,port=8051)
     #App().app.run_server(host='0.0.0.0', port=3002)

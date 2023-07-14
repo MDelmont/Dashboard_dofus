@@ -28,6 +28,26 @@ class Data():
     def make_dict_dropdown_item(self,categ_name='Tout'):
         return [{ 'label':name ,'value':name } for name in self.get_list_item(categ_name=categ_name)]
     
+    def get_list_grp_lvl(self):
+        grp_lvl = self.df['grp_lvl'].unique()
+        grp_lvl = np.concatenate([np.array(['Tout']),grp_lvl])
+
+        return grp_lvl
+    
+    def make_dict_dropdown_grp_lvl(self):
+      
+        return [{ 'label':name ,'value':name } for name in self.get_list_grp_lvl()]
+    
+    def get_list_categorie_element(self):
+        categorie_element = self.df['categorie_element'].unique()
+    
+
+        return categorie_element
+    
+    def make_dict_dropdown_categorie_element(self):
+      
+        return [{ 'label':name ,'value':name } for name in self.get_list_categorie_element()]
+    
     def get_list_categ(self):
         types = self.df['Type'].unique()
         types = np.concatenate([np.array(['Tout']),sorted(types)])

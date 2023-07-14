@@ -6,7 +6,7 @@ $back-color-black : #22231d;
 body{
     background-color: $back-color-black-soft;
     font-family: 'Roboto', sans-serif;
-    overflow : hidden;
+    overflow: hidden;
 }
 .page-content {
     position: relative;
@@ -61,6 +61,7 @@ h4{
         .title_choise{
             color : $text-color-green;
             font-weight: bold;
+            
     
         }
         .dash-dropdown{
@@ -119,7 +120,67 @@ h4{
         grid-row: 2 / 2;
         background-color: $back-color-black;
         grid-row: 1 / span 2;
-     
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        
+        .cont-graph-elem{
+
+            
+        }
+
+        #Choise_your_grp_lvl, #Choise_your_categ_elem{
+            position: relative;
+            height:5%;
+            width: 100%;
+            margin : 20px;
+            margin-top : 30px;
+            
+
+            .title_choise{
+                position: absolute;
+                left: 20%;
+                color : $text-color-green;
+                margin-right: 10px;
+                top:50%;
+                transform: translateX(-100%) translateY(-50%);
+                margin-top:0px;
+                margin-left: 20px;
+                
+        
+            }
+            .dash-dropdown{
+                position: absolute;
+                left: 35%;
+                width: 45%;
+                top:50%;
+                transform: translateY(-50%);
+
+                color: $text-color-green;
+                .Select-control{
+                    background-color: $back-color-black-soft;
+                    color:$text-color-green;
+                    border: 1px solid $text-color-green;
+                    .Select-value-label {
+                        color : $text-color-green;
+                    }
+                    .Select-arrow {
+                        border-color: $text-color-green transparent transparent;
+                    }
+                    .Select-clear-zone{
+                        color: $text-color-green ;
+                    }
+                    .Select-placeholder {
+                        color : $text-color-green;
+                    }
+                }
+                .Select-menu-outer{
+                    background-color: $back-color-black-soft;
+                    color : $text-color-green;
+                    border: 1px solid $text-color-green;
+                }
+            }
+        }
 
     }
     .Repartition_niveau_item{
@@ -214,6 +275,7 @@ h4{
         display: flex;
         flex-direction: column-reverse;
         justify-content: flex-end;
+      
         #titre-ele_item{
             margin-bottom : 10px;
         }
@@ -285,16 +347,28 @@ h4{
             margin-top: 10px;
             display: grid;
             grid-template-columns: 50% 50%;
+            align-items: center;
+            place-items: center;
             
             .part_graph_item{
                 height: 100%;
-                background-color:  $back-color-black ;
+                display: flex;
+                flex-direction: column;
+                justify-self: center;
+                
+             
                 #titre-item-graphe-1,#titre-item-graphe-2{
+                    position: relative;
                     margin-top: 5;
-                    margin-bottom: 5;
+                    margin-bottom: 2;
+                    background-color: transparent;
                 }
                 .part_graph_item_fig{
-                    height: 50%;
+                    position: relative;
+                 
+                    
+
+           
                     .user-select-none & .svg-container{
                         height: 50%;
                     }
