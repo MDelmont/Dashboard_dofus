@@ -39,7 +39,8 @@ app.layout = html.Div([
                                      children=[
                                          html.Div(className='Cont_graph',
                                             children =[dcc.Graph(id='pie_graph',
-                                                figure=graph.get_graph_pie(categ_ele="mono-élément"))]
+                                                figure=graph.get_graph_pie(categ_ele="mono-élément"),
+                                                )]
                                          ),
                                      ]
                                      
@@ -132,7 +133,7 @@ app.layout = html.Div([
                                         className='part_graph_item',
                                         children=[
                                             html.H4("Coparaison du poids pour tous niveau",id="titre-item-graphe-2"),
-                                            html.Div(className='part_graph_item_fig', children=[dcc.Graph(id='graph_pod_global',figure=graph.get_graph_gauge())])]
+                                            html.Div(className='part_graph_item_fig', children=[dcc.Graph(className='graph-container',id='graph_pod_global',figure=graph.get_graph_gauge())])]
                                     )
                                     
                                         ]
