@@ -1,0 +1,328 @@
+// color site
+$text-color-one : #d9d9d7;
+$text-color-green : #d6f204;
+$back-color-black-soft : #2b2e25;
+$back-color-black : #22231d;
+
+
+//  Style des dropdown
+.dash-dropdown{
+    color: $text-color-green;
+    .Select-control,.has-value.Select--single>.Select-control{
+        background-color: $back-color-black-soft;
+        color:$text-color-green;
+        border: 1px solid $text-color-green;
+        .Select-value{
+            .Select-value-label {
+                color : $text-color-green;
+            }
+        }
+        .Select-arrow {
+            border-color: $text-color-green transparent transparent;
+        }
+        .Select-clear-zone{
+            color: $text-color-green ;
+        }
+        .Select-placeholder {
+            color : $text-color-green;
+        }
+    }
+    .Select-menu-outer{
+        background-color: $back-color-black-soft;
+        color : $text-color-green;
+        border: 1px solid $text-color-green;
+    }
+}
+
+.title_choise{
+    color:#d6f204;
+}
+
+body{
+    background-color: $back-color-black-soft;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+.page-content {
+    position: relative;
+    width: 100vw; /* 100% de la largeur de la fenêtre */
+
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    
+}
+
+.Menu{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color:$text-color-one;
+    .logo{
+        position: relative;
+
+ 
+        width: 35%;
+    }
+    .Titre_dashbord{
+        width: 95%;
+        font-size: 20px;
+    }
+    #Choise_your_categorie{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+        .title_choise{
+       
+        }
+        #list_categ{
+            width: 75%;
+        }
+
+    }
+    
+}
+
+.content-stats{
+    position: relative;
+  
+    height: 87%;
+    width: 97%;
+   
+    display: grid;
+    grid-template-columns: 100%; /* 3 colonnes */
+    grid-template-rows: 1fr 1fr; /* 2 lignes */
+    gap: 10px; /* Espacement entre les éléments */
+    transform: translateX(-50%);
+    left: 50%;
+
+
+
+    .Elements_categorie_lvl{
+      
+        grid-column: 1 / span 1; /* Première colonne */
+        grid-row: 2 / 2;
+        background-color: $back-color-black;
+        grid-row: 1 / span 2;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        min-height: 250px;
+
+        #titre-ele_Categ{
+            text-align: center;
+        }
+        #Choise_your_grp_lvl, #Choise_your_categ_elem{
+       
+            width: 75%;
+
+            
+
+            .title_choise{
+                text-align: center;
+            }
+    
+        }
+        .cont-graph-elem{
+            width: 100%;
+        }
+    }
+    .Repartition_niveau_item{
+      
+
+        background-color: $back-color-black;
+
+        #titre-rep-niv{
+            color : $text-color-green;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+        #Rep_By_Level{
+          
+        
+        }
+     
+    }
+
+    .Repartition_poids_par_niveau{
+    
+      
+        background-color: $back-color-black;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        #titre-rep-poids{
+            color : $text-color-green;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+        #Choise_your_methode{
+            width: 75%;
+            .title_choise{
+                text-align: center;
+            }
+        }
+        #Rep_By_poids{
+            width: 100%;
+        }
+
+        
+    }
+    .Select_item{
+        position: relative;
+        background-color: $back-color-black;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-around;
+        color :$text-color-green;
+
+
+    
+    }
+    #Choise_your_item{
+
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        #list_item{
+            width: 75%;
+        }
+
+    }
+    #cont_item_view{
+        position: relative;
+        align-content: center;
+        
+        width: 100%;
+        
+   
+    }
+    .stats-item{
+        position: relative;
+        background-color: $back-color-black ;
+        width: 100%;
+      
+        bottom: 0;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        
+        .part_graph_item{
+       
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+        }
+    }
+
+
+}
+
+
+$hauteur : 90%;
+$Largeur : 90%;
+$Color-text-card-white : white;
+$Color-text-card-second-white : rgb(238, 238, 238);
+$Color-text-card-green : #4ca53c;
+$Color-text-card-red :#bf635a;
+.Card-item{
+    position: relative;
+    top:50%;
+    left: 50%;
+    padding-top: 10px;
+    width: 90%;
+    background-color: black;
+    transform: translateX(-50%) translateY(-50%) ;
+    margin-top: 10px;
+
+    .name_of_card{
+        margin-bottom: 0;
+        padding-bottom: 0;
+        position: relative;
+        color:$Color-text-card-white;
+        font-weight: bold;
+        font-size:larger;
+        left : 5%;
+   
+    }
+    .niveau_of_card{
+        position: relative;
+        color:$Color-text-card-second-white;
+        font-weight:lighter;
+        font-size:medium;
+        margin-top:0;
+        left : 5%;
+
+    
+
+    }
+    .visuel{
+        position:absolute;
+        width: 100px; /* Largeur souhaitée */
+        height: 100px; /* Hauteur souhaitée */
+        right: 5%;
+        top:5%;
+    }
+    .Effets-name{
+        position: relative;
+        color:$Color-text-card-second-white;
+        font-weight: bold;
+        font-size:larger;
+        left : 7%;
+     
+    
+    }
+    .Cont-Effets{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        left : 9%;
+      
+ 
+        .Effet-text{
+            margin:0;
+   
+            &.red {
+                color: $Color-text-card-red;
+            }
+    
+            &.green {
+                color: $Color-text-card-green;
+            }
+
+        }
+
+    }
+    .cont_categ{
+        position: relative;
+        display: flex;
+        left : 5%;
+    
+        vertical-align: middle;
+
+        .title_categ_of_card{
+            color:$Color-text-card-second-white;
+            font-weight:lighter;
+            font-size:medium;
+            margin-right: 10px;
+        }
+        .categ_of_card{
+            color:$Color-text-card-second-white;
+            font-weight: bold;
+            font-size:medium;
+
+        }
+    }
+
+}

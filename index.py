@@ -40,6 +40,8 @@ app.layout = html.Div([
                                          html.Div(className='Cont_graph',
                                             children =[dcc.Graph(id='pie_graph',
                                                 figure=graph.get_graph_pie(categ_ele="mono-élément"),
+                                                responsive=True,
+                                            
                                                 )]
                                          ),
                                      ]
@@ -74,7 +76,7 @@ app.layout = html.Div([
                                 ),
                             ]),
 
-                            html.H4("Repartition des éléments par niveau",id="titre-ele_Categ"),
+                            html.H4("Repartition des éléments par niveau",id="titre-ele_Categ",className='title_choise'),
                         ]
                     ),
                     html.Div(
@@ -82,7 +84,8 @@ app.layout = html.Div([
                         children=[
                             html.H4("Répartition des items par quantité et niveau",id="titre-rep-niv"),
                             dcc.Graph(id='Rep_By_Level',
-                                      figure=graph.get_graph_rep_by_item())
+                                      figure=graph.get_graph_rep_by_item(),
+                                      responsive=True,)
 
                         ]
                     ),
@@ -91,6 +94,7 @@ app.layout = html.Div([
                         children=[
                             dcc.Graph(id='Rep_By_poids',
                                       figure=graph.get_grap_level(),
+                                      responsive=True,
                                       ),
                             html.Div(id='Choise_your_methode',
                                      
@@ -269,6 +273,6 @@ def update_item(item_name,categ_name):
 #     except Exception as error:
 #         return f"ERROR : {error}"
 
-#if __name__ == '__main__':
-    #App.app.run_server(debug=False,port=8051)
+if __name__ == '__main__':
+    App.app.run_server(debug=True,port=8051)
     #App().app.run_server(host='0.0.0.0', port=3002)

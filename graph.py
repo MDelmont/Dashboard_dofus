@@ -53,7 +53,7 @@ class Graph():
             
                 xaxis=dict(showgrid=False, tickfont=dict(family="Roboto", size=12, color="#d9d9d7")), 
                 yaxis=dict(showgrid=False, range=[0, echelle_max],tickfont=dict(family="Roboto", size=12, color="#d9d9d7"),zeroline= False),  # Masquer la grille sur l'axe y
-                height=self.desired_height,  # Définir la hauteur du graphique
+                # height=self.desired_height,  # Définir la hauteur du graphique
             
             )
 
@@ -92,7 +92,7 @@ class Graph():
                 paper_bgcolor='#22231d',
                 font=dict(color='#d6f204', family='Roboto, sans-serif'),
                 title_font=dict(family="Roboto", size=18),
-                height=self.desired_height*0.8,  # Définir la hauteur du graphique
+                # height=self.desired_height*0.8,  # Définir la hauteur du graphique
                 margin=dict(t=50)
             )
 
@@ -130,6 +130,7 @@ class Graph():
                             }
                         
                         },
+                
             
 
             )
@@ -173,9 +174,9 @@ class Graph():
             # Créer le pie chart
             fig = go.Figure(data=[go.Pie(labels=element_counts.index, values=element_counts.values, marker=dict(colors=color_list))])
             if grp_lvl != 'Tout':
-                fig.update_layout(title=dict(text=f"Graphique pour la catégorie {categ_ele} concernant les du niveau {grp_lvl}",x=0.5,xanchor='center'))
+                fig.update_layout(title=dict(text=f"Graphique pour la catégorie <br>{categ_ele}  <br>concernant les du niveau {grp_lvl}",x=0.5,xanchor='center'))
             else:
-                fig.update_layout(title=dict(text=f"Graphique pour la catégorie {categ_ele}",x=0.5,xanchor='center'))
+                fig.update_layout(title=dict(text=f"Graphique pour la catégorie <br>{categ_ele}",x=0.5,xanchor='center'))
             fig.update_layout(
                 plot_bgcolor='rgba(0,0,0,0)',  # Fond transparent
                 paper_bgcolor='#22231d',
@@ -190,7 +191,8 @@ class Graph():
                 legend=dict(
 
                     orientation='h',  # Orientation horizontale
-
+                    x=0.3,
+                    y=-0.2,
                 )
             )
             # Afficher les filtres interactifs pour les catégories et grp_lvls
