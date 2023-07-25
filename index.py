@@ -9,7 +9,7 @@ from resources.conf import Conf
 
 from data import Data
 from graph import Graph
-import html_cont
+from html_cont import Html_content
 
 
 conf = Conf()
@@ -80,7 +80,7 @@ app.layout = html.Div([
                     html.Div(
                         className='Repartition_niveau_item',
                         children=[
-                            html.H4("Répartition des items pa quantité et niveau",id="titre-rep-niv"),
+                            html.H4("Répartition des items par quantité et niveau",id="titre-rep-niv"),
                             dcc.Graph(id='Rep_By_Level',
                                       figure=graph.get_graph_rep_by_item())
 
@@ -236,7 +236,7 @@ def update_graph_level(groupby_method,categ_name):
 )
 def update_item(item_name,categ_name):
     name, Niveau, Effects, Categorie, img_url, poids, mean_poid_general, max_poid_general, min_poid_general, mean_poid_by_lvl, max_poid_by_lvl ,min_poid_by_lvl = Data().get_instance().get_info_fo_card(item_name,categ_name)
-    return  [html_cont.make_html_card_item(name=name, Niveau=Niveau, Effects=Effects, Categorie=Categorie, img_url=img_url)], graph.get_graph_gauge(value=poids,delta_ref=mean_poid_by_lvl,range_min=min_poid_by_lvl,range_max=max_poid_by_lvl), graph.get_graph_gauge(value=poids,delta_ref=mean_poid_general,range_min=min_poid_general,range_max=max_poid_general),f"Coparaison du poids pour le niveau {Niveau}"
+    return  [Html_content().make_html_card_item(name=name, Niveau=Niveau, Effects=Effects, Categorie=Categorie, img_url=img_url)], graph.get_graph_gauge(value=poids,delta_ref=mean_poid_by_lvl,range_min=min_poid_by_lvl,range_max=max_poid_by_lvl), graph.get_graph_gauge(value=poids,delta_ref=mean_poid_general,range_min=min_poid_general,range_max=max_poid_general),f"Coparaison du poids pour le niveau {Niveau}"
 
     # Votre logique de mise à jour de la figure ici
     # Utilisez groupby_method pour déterminer
@@ -270,5 +270,5 @@ def update_item(item_name,categ_name):
 #         return f"ERROR : {error}"
 
 if __name__ == '__main__':
-    App.app.run_server(debug=False,port=8051)
-    #App().app.run_server(host='0.0.0.0', port=3002)
+    #App.app.run_server(debug=False,port=8051)
+    App().app.run_server(host='0.0.0.0', port=3002)
