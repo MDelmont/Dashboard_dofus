@@ -2,19 +2,14 @@
 # -*- coding: utf-8 -*-
 from app import App
 import plotly.graph_objects as go
-import tkinter as tk
 import logging
 
 class Graph():
     def __init__(self):
         app = App().get_instance()
         self.df = app.data
-         # Calculer la hauteur en pourcentage
-        desired_percentage = 20  # Mettez ici le pourcentage désiré
-        screen_height = tk.Tk().winfo_screenheight()
-        screen_width= tk.Tk().winfo_screenwidth()
-        self.desired_height = (screen_height * desired_percentage) / 100
-        self.screen_width = (screen_width * desired_percentage) / 100
+        self.desired_height=250
+
         pass
 
     def get_graph_rep_by_item(self,categ_name='Tout'):
