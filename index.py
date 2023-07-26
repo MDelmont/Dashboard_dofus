@@ -274,6 +274,6 @@ def update_item(item_name,categ_name):
 #     except Exception as error:
 #         return f"ERROR : {error}"
 
-if __name__ == '__main__':
-    App.app.run_server(debug=True,port=8051)
+# if __name__ == '__main__':
+#     App.app.run_server(debug=True,port=8051)
     #App().app.run_server(host='0.0.0.0', port=3002)
