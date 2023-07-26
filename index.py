@@ -238,6 +238,7 @@ def update_graph_level(groupby_method,categ_name):
     Input('list_item', 'value'),
     Input('list_categ', 'value')
 )
+
 def update_item(item_name,categ_name):
     name, Niveau, Effects, Categorie, img_url, poids, mean_poid_general, max_poid_general, min_poid_general, mean_poid_by_lvl, max_poid_by_lvl ,min_poid_by_lvl = Data().get_instance().get_info_fo_card(item_name,categ_name)
     return  [Html_content().make_html_card_item(name=name, Niveau=Niveau, Effects=Effects, Categorie=Categorie, img_url=img_url)], graph.get_graph_gauge(value=poids,delta_ref=mean_poid_by_lvl,range_min=min_poid_by_lvl,range_max=max_poid_by_lvl), graph.get_graph_gauge(value=poids,delta_ref=mean_poid_general,range_min=min_poid_general,range_max=max_poid_general),f"Coparaison du poids pour le niveau {Niveau}"
