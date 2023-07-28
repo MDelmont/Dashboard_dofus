@@ -129,6 +129,7 @@ body {
 }
 .content-stats .Repartition_niveau_item {
   background-color: #22231d;
+  min-height: 650px;
 }
 .content-stats .Repartition_niveau_item #titre-rep-niv {
   color: #d6f204;
